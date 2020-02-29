@@ -1,7 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ACME_ExtractWorkItemdata" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_WorkItemUrl" Type="InArgument(x:String)" />
-    <x:Property Name="out_WorkItemDetailsText" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="URL for individual workitem" Name="in_WorkItemUrl" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Text string contains client's detail for work item" Name="out_WorkItemDetailsText" Type="OutArgument(x:String)" />
   </x:Members>
   <this:ACME_ExtractWorkItemdata.in_WorkItemUrl>
     <InArgument x:TypeArguments="x:String" />
@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>496,595</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>496,667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ACME_ExtractWorkItemdata_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -58,10 +58,11 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ACME_ExtractWorkItemdata" sap:VirtualizedContainerService.HintSize="476,535" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Opens specific workitem page using URL(of that workitem) input argument&#xD;&#xA;&#xD;&#xA;Precondition: ACME system1 should be opened in IE&#xD;&#xA;Post action: Workitem page opens and client detail loads into text string" DisplayName="ACME_ExtractWorkItemdata" sap:VirtualizedContainerService.HintSize="476,607" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACMESystem'" sap:VirtualizedContainerService.HintSize="434,443" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="ab0fe7d171667af3bdcdd67d0b305267" Selector="&lt;html title='ACME System 1*' /&gt;">
@@ -79,7 +80,7 @@
             <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To workItem" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="[in_WorkItemUrl]" />
             <ui:GetVisibleText WordsInfo="{x:Null}" DisplayName="Get Visible Text workitem details" FormattedText="True" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
               <ui:GetVisibleText.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="74e93ba72f2e99b2330e3792b62dea6c" Selector="&lt;webctrl idx='1' tag='P' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="74e93ba72f2e99b2330e3792b62dea6c" Selector="&lt;webctrl tag='P' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
