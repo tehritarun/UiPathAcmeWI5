@@ -1,6 +1,6 @@
 {
-  "name": "ACME_WI5",
-  "description": "WI5 process for ACME test process",
+  "name": "Calculate_Client_Security_Hash",
+  "description": "Calculate_Client_Security_Hash for ACME system1 web application",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
