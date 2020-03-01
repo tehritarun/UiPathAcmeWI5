@@ -64,7 +64,7 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="Generate_Yearly_Report &#xA;Download monthly report for all months, consolidates into yearly report, upload yearly report and updates workitem with upload id and mark status to completed&#xD;&#xA;&#xD;&#xA;Author: Tarun Tehri&#xD;&#xA;Application: ACME system1" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="687,840" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="Generate_Yearly_Report &#xA;Download monthly report for all months, consolidates into yearly report, upload yearly report and updates workitem with upload id and mark status to completed&#xA;&#xA;Author: Tarun Tehri&#xA;Application: ACME system1" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="687,840" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

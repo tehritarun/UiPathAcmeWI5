@@ -1,6 +1,6 @@
 {
   "name": "Generate_Yearly_Report",
-  "description": "Robotic Enterprise Framework",
+  "description": "Download monthly report for all months, consolidates into yearly report, upload yearly report and updates workitem with upload id and mark status to completed",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
