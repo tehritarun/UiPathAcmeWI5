@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>834,2907</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>830.4,3360</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -58,10 +58,9 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="814,2847" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="810.4,3260" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="VendorInformation" />
       <Variable x:TypeArguments="x:String" Name="TaxID" />
@@ -79,13 +78,13 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_ExtractWorkItemDetails workflow" sap:VirtualizedContainerService.HintSize="772,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ACMESystem1\System1_ExtractWorkItemDetails.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_ExtractWorkItemDetails workflow" sap:VirtualizedContainerService.HintSize="768.8,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ACMESystem1\System1_ExtractWorkItemDetails.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_WorkItemUrl">[in_Config("System1 URL").ToString + "work-items/" + in_TransactionID]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_WorkItemDetailsText">[VendorInformation]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign DisplayName="Fetch TaxID" sap:VirtualizedContainerService.HintSize="772,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Fetch TaxID" sap:VirtualizedContainerService.HintSize="768.8,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[TaxID]</OutArgument>
       </Assign.To>
@@ -93,7 +92,7 @@
         <InArgument x:TypeArguments="x:String">[VendorInformation.Split({"Name"},StringSplitOptions.None)(0).Replace("TaxID:","").Trim]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="All Months to Month array" sap:VirtualizedContainerService.HintSize="772,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="All Months to Month array" sap:VirtualizedContainerService.HintSize="768.8,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[MonthArray]</OutArgument>
       </Assign.To>
@@ -101,12 +100,12 @@
         <InArgument x:TypeArguments="s:String[]">[{"January","February","March","April","May","June","July","August","September","October","November","December"}]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_GotoMonthlyReport workflow" sap:VirtualizedContainerService.HintSize="772,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ACMESystem1/System1_NavigateToPage.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_GotoMonthlyReport workflow" sap:VirtualizedContainerService.HintSize="768.8,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ACMESystem1/System1_NavigateToPage.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_NavigateURL">[in_Config("System1 URL").ToString + "reports/download"]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign sap:VirtualizedContainerService.HintSize="772,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap:VirtualizedContainerService.HintSize="768.8,60" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[ReportYear]</OutArgument>
       </Assign.To>
@@ -114,13 +113,13 @@
         <InArgument x:TypeArguments="x:String">[Now.AddYears(-1).ToString("yyyy")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Month in Year" sap:VirtualizedContainerService.HintSize="772,1093" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[MonthArray]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Month in Year" sap:VirtualizedContainerService.HintSize="768.8,1492.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[MonthArray]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="Month" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="736,959" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="733.6,1358.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="MonthlyReport" />
             </Sequence.Variables>
@@ -130,7 +129,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_DownloadMonthlyReport workflow" sap:VirtualizedContainerService.HintSize="694,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ACMESystem1\System1_DownloadMonthlyReport.xaml">
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_DownloadMonthlyReport workflow" sap:VirtualizedContainerService.HintSize="692,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ACMESystem1\System1_DownloadMonthlyReport.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="in_VendorTaxID">[TaxID]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_ReportMonth">[Month]</InArgument>
@@ -139,18 +138,46 @@
                 <OutArgument x:TypeArguments="x:Boolean" x:Key="out_ReportSaved">[ReportSaved]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <If Condition="[ReportSaved]" sap:VirtualizedContainerService.HintSize="694,640" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[ReportSaved]" sap:VirtualizedContainerService.HintSize="692,1037.6" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="549,492" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence sap:VirtualizedContainerService.HintSize="548,888" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[MonthlyReport]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[Environment.GetEnvironmentVariable(&quot;USERPROFILE&quot;).ToString + &quot;\Downloads\Report-&quot; + TaxID + &quot;-&quot; + Counter.ToString +&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="507,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-                  <If Condition="[IsNothing(YearlyReport)]" sap:VirtualizedContainerService.HintSize="507,208" sap2010:WorkflowViewState.IdRef="If_1">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="506.4,545.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <TryCatch.Try>
+                      <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[MonthlyReport]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[Environment.GetEnvironmentVariable(&quot;USERPROFILE&quot;).ToString + &quot;\Downloads\Report-&quot; + TaxID + &quot;-&quot; + Counter.ToString +&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="333.6,155.2" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,380.8" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Try Reading againg after 5 sec" sap:VirtualizedContainerService.HintSize="375.2,310.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                            <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[MonthlyReport]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[Environment.GetEnvironmentVariable(&quot;USERPROFILE&quot;).ToString + &quot;\Downloads\Report-&quot; + TaxID + &quot;-&quot; + Counter.ToString +&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="333.6,155.2" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2" />
+                          </Sequence>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <If Condition="[IsNothing(YearlyReport)]" sap:VirtualizedContainerService.HintSize="506.4,209.6" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Then>
-                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                         <Assign.To>
                           <OutArgument x:TypeArguments="sd:DataTable">[YearlyReport]</OutArgument>
                         </Assign.To>
@@ -160,13 +187,13 @@
                       </Assign>
                     </If.Then>
                     <If.Else>
-                      <ui:MergeDataTable Destination="[YearlyReport]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[MonthlyReport]" />
+                      <ui:MergeDataTable Destination="[YearlyReport]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[MonthlyReport]" />
                     </If.Else>
                   </If>
                 </Sequence>
               </If.Then>
             </If>
-            <Assign sap:VirtualizedContainerService.HintSize="694,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign sap:VirtualizedContainerService.HintSize="692,60" sap2010:WorkflowViewState.IdRef="Assign_8">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Int32">[Counter]</OutArgument>
               </Assign.To>
@@ -184,7 +211,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <Assign sap:VirtualizedContainerService.HintSize="772,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign sap:VirtualizedContainerService.HintSize="768.8,60" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
       </Assign.To>
@@ -192,19 +219,19 @@
         <InArgument x:TypeArguments="x:String">["Data\Output\Yearly-Report-" + ReportYear + "-" + TaxID + ".xlsx"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="772,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[FilePath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="768.8,290.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[FilePath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,180.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelWriteRange AddHeaders="True" DataTable="[YearlyReport]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet1" StartingCell="A1" />
+            <ui:ExcelWriteRange AddHeaders="True" DataTable="[YearlyReport]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet1" StartingCell="A1" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
@@ -215,7 +242,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <Assign sap:VirtualizedContainerService.HintSize="772,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign sap:VirtualizedContainerService.HintSize="768.8,60" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
       </Assign.To>
@@ -223,12 +250,12 @@
         <InArgument x:TypeArguments="x:String">[Environment.GetEnvironmentVariable("USERPROFILE") + "\Documents\UiPath\Generate_Yearly_Report\" + FilePath]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_NavigateToPage workflow" sap:VirtualizedContainerService.HintSize="772,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="ACMESystem1\System1_NavigateToPage.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_NavigateToPage workflow" sap:VirtualizedContainerService.HintSize="768.8,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="ACMESystem1\System1_NavigateToPage.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_NavigateURL">[in_Config("System1 URL").ToString + "reports/upload"]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_UploadYearlyReport workflow" sap:VirtualizedContainerService.HintSize="772,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="ACMESystem1\System1_UploadYearlyReport.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_UploadYearlyReport workflow" sap:VirtualizedContainerService.HintSize="768.8,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="ACMESystem1\System1_UploadYearlyReport.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_TaxID">[TaxID]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_ReportYear">[ReportYear]</InArgument>
@@ -236,12 +263,12 @@
         <OutArgument x:TypeArguments="x:String" x:Key="out_ConfirmationID">[UploadID]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_NavigateToPage workflow" sap:VirtualizedContainerService.HintSize="772,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ACMESystem1\System1_NavigateToPage.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_NavigateToPage workflow" sap:VirtualizedContainerService.HintSize="768.8,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ACMESystem1\System1_NavigateToPage.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_NavigateURL">[in_Config("System1 URL").ToString + "work-items/" + in_TransactionID]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_UpdateWorkItem workflow" sap:VirtualizedContainerService.HintSize="772,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="ACMESystem1\System1_UpdateWorkItem.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_UpdateWorkItem workflow" sap:VirtualizedContainerService.HintSize="768.8,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="ACMESystem1\System1_UpdateWorkItem.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_Comments">["Uploaded with ID " + UploadID]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
